@@ -1,5 +1,6 @@
 export class ChatApp {
-  constructor() {
+  constructor(userData) {
+    this.userData = userData
     this.currentChat = 'general'
     this.messages = {
       general: [
@@ -79,8 +80,8 @@ export class ChatApp {
 
     const message = {
       id: Date.now(),
-      author: 'You',
-      avatar: '👤',
+      author: this.userData.username,
+      avatar: this.userData.avatar,
       text: text,
       time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       type: 'sent'
